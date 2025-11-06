@@ -8,7 +8,7 @@ def filter_substr(string_set: set[str]) -> set[str]:
         for longer_string in list(result):
             if string in longer_string:
                 is_substring = True
-                continue
+                break
 
         if not is_substring:
             result.add(string)
