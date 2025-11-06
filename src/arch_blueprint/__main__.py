@@ -1,13 +1,17 @@
-from arch_blueprint.blueprint import ArchBlueprint
 import argparse
 
+from arch_blueprint.blueprint import ArchBlueprint
 
-def main():
+
+def main() -> None:
+    """Main entry point for the arch_blueprint CLI."""
     parser = argparse.ArgumentParser(
-        description="Generate component diagrams in plantuml for python applications"
+        description="Generate component diagrams in plantuml for python applications",
     )
     parser.add_argument(
-        "root", type=str, help="Name of root python module in project (example: 'myapp'"
+        "root",
+        type=str,
+        help="Name of root python module in project (example: 'myapp'",
     )
     parser.add_argument(
         "--modules",
@@ -15,7 +19,11 @@ def main():
         type=str,
         nargs="*",
         action="extend",
-        help="Selected modules for rendering (examples: 'myapp.somemodule', 'myapp.somemodule.*', 'myapp.somemodule.**')",
+        help=(
+            "Selected modules for rendering "
+            "(examples: 'myapp.somemodule', "
+            "'myapp.somemodule.*', 'myapp.somemodule.**')"
+        ),
     )
     args = parser.parse_args()
 
